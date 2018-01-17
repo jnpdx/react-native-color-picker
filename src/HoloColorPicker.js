@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Slider, View, Image, StyleSheet, InteractionManager, I18nManager } from 'react-native'
+import { TouchableOpacity, Slider, View, Image, StyleSheet, InteractionManager, I18nManager, Text } from 'react-native'
 import tinycolor from 'tinycolor2'
 import { createPanResponder } from './utils'
 
@@ -179,8 +179,14 @@ export class HoloColorPicker extends React.PureComponent {
         </View>
         { this.props.hideSliders == true ? null :
           <View>
-            <Slider value={s} onValueChange={this._onSValueChange} />
-            <Slider value={v} onValueChange={this._onVValueChange} />
+			<View style={styles.sliderRow}>
+				<Text>Saturation</Text>
+            	<Slider value={s} onValueChange={this._onSValueChange} />
+			</View>
+			<View style={styles.sliderRow}>
+				<Text>Brightness</Text>
+            	<Slider value={v} onValueChange={this._onVValueChange} />
+			</View>
           </View>
         }
       </View>
@@ -297,5 +303,10 @@ const styles = StyleSheet.create({
   },
   pickerAlignment: {
     alignItems: 'center',
+  },
+  sliderRow: {
+	  flex: 1,
+	  flexDirection: 'row'
+	  justifyContent: 'space-around'
   },
 })
