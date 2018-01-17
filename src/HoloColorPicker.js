@@ -178,15 +178,15 @@ export class HoloColorPicker extends React.PureComponent {
           }
         </View>
         { this.props.hideSliders == true ? null :
-          <View>
-			<View style={styles.sliderRow}>
-				<Text>Saturation</Text>
-            	<Slider value={s} onValueChange={this._onSValueChange} />
-			</View>
-			<View style={styles.sliderRow}>
-				<Text>Brightness</Text>
-            	<Slider value={v} onValueChange={this._onVValueChange} />
-			</View>
+          <View style={{flexDirection: 'column',height: 80}}>
+            <View style={styles.sliderRow}>
+              <Text style={{textAlign: 'center'}}>Saturation</Text>
+              <Slider style={styles.sliderStyle} value={s} onValueChange={this._onSValueChange} />
+            </View>
+            <View style={styles.sliderRow}>
+              <Text>Brightness</Text>
+              <Slider style={styles.sliderStyle} value={v} onValueChange={this._onVValueChange} />
+            </View>
           </View>
         }
       </View>
@@ -307,6 +307,12 @@ const styles = StyleSheet.create({
   sliderRow: {
 	  flex: 1,
 	  flexDirection: 'row',
-	  justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
+  sliderStyle: {
+    flex: 1,
+    height: 30,
+    marginLeft: 20,
+  }
 })
