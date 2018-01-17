@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
   },
   sliderRow: {
 	  flex: 1,
-	  flexDirection: 'row'
+	  flexDirection: 'row',
 	  justifyContent: 'space-around'
   },
 })
